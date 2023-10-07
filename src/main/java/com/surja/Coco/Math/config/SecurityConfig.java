@@ -23,7 +23,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.addAllowedOrigin("https://numerical-methods-solver.onrender.com"); // Allow requests from your local development environment
+        corsConfiguration.addAllowedOrigin("*"); // Allow requests from your local development environment
         corsConfiguration.addAllowedMethod("GET"); // Add the HTTP methods you want to allow
         corsConfiguration.addAllowedMethod("POST");
         corsConfiguration.addAllowedMethod("PUT");
