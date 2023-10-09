@@ -22,20 +22,18 @@ public class SolutionOfODEController {
         String equation = ode.getEquation();
         double x = ode.getValueOfX();
         double y = ode.getValueOfY();
-        int n = ode.getPartitions();
         double p = ode.getValuePoint();
         double h = ode.getHeight();
-        double[][] result = this.solutionOfODEImplementation.eulersMethod(equation,x,y,h,n,p);
+        double[][] result = this.solutionOfODEImplementation.eulersMethod(equation,x,y,h,p);
 
         ODEDto newResponse = new ODEDto();
         newResponse.setEquation(equation);
         newResponse.setValueOfX(x);
         newResponse.setValueOfY(y);
-        newResponse.setPartitions(n);
         newResponse.setHeight(h);
         newResponse.setValuePoint(p);
         newResponse.setResult(result);
-        newResponse.setResultAtPoint(result[n][1]);
+        newResponse.setResultAtPoint(result[result.length-1][1]);
 
         return new ResponseEntity<>(newResponse, HttpStatus.OK);
     }
@@ -45,20 +43,18 @@ public class SolutionOfODEController {
         String equation = ode.getEquation();
         double x = ode.getValueOfX();
         double y = ode.getValueOfY();
-        int n = ode.getPartitions();
         double p = ode.getValuePoint();
         double h = ode.getHeight();
-        double[][] result = this.solutionOfODEImplementation.eulersModifiedMethod(equation,x,y,h,n,p);
+        double[][] result = this.solutionOfODEImplementation.eulersModifiedMethod(equation,x,y,h,p);
 
         ODEDto newResponse = new ODEDto();
         newResponse.setEquation(equation);
         newResponse.setValueOfX(x);
         newResponse.setValueOfY(y);
-        newResponse.setPartitions(n);
         newResponse.setHeight(h);
         newResponse.setValuePoint(p);
         newResponse.setResult(result);
-        newResponse.setResultAtPoint(result[n][1]);
+        newResponse.setResultAtPoint(result[result.length - 1][1]);
 
         return new ResponseEntity<>(newResponse, HttpStatus.OK);
     }

@@ -10,7 +10,6 @@ import lombok.Setter;
 public class ODEDto {
     private String equation;
     private double height;
-    private int partitions;
     private double valueOfX;
     private double valueOfY;
     private double valuePoint;

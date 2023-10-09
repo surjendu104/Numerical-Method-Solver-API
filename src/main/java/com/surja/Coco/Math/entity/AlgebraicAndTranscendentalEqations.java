@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class AlgebraicAndTranscendentalEqations {
-    String equation;
-    double lowerLimit;
-    double upperLimit;
-    int numberOfIteration;
+    private String equation;
+    private double lowerLimit;
+    private double upperLimit;
+    private int numberOfIteration;
 }
