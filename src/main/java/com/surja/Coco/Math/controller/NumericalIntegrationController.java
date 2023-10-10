@@ -24,14 +24,18 @@ public class NumericalIntegrationController {
         double a = integration.getLowerBound();
         double b = integration.getUpperBound();
         double n = integration.getPartitionNumber();
+        double[][] table = new double[(int)n+1][2];
 
-        double result = this.numericalIntegrationImplementation.trapezoidalRule(a,b,n,expr);
-        IntegrationDto newResult = new IntegrationDto();
-        newResult.setExpression(expr);
-        newResult.setLowerBound(a);
-        newResult.setUpperBound(b);
-        newResult.setPartitionNumber(n);
-        newResult.setResult(result);
+        double result = this.numericalIntegrationImplementation.trapezoidalRule(a,b,n,expr, table);
+        IntegrationDto newResult = IntegrationDto
+                .builder()
+                .expression(expr)
+                .lowerBound(a)
+                .upperBound(b)
+                .partitionNumber(n)
+                .result(result)
+                .table(table)
+                .build();
 
         return new ResponseEntity<>(newResult, HttpStatus.OK);
     }
@@ -43,14 +47,18 @@ public class NumericalIntegrationController {
         double a = integration.getLowerBound();
         double b = integration.getUpperBound();
         double n = integration.getPartitionNumber();
+        double[][] table = new double[(int)n+1][2];
 
-        double result = this.numericalIntegrationImplementation.simpsons_one_third_rule(a,b,n,expr);
-        IntegrationDto newResult = new IntegrationDto();
-        newResult.setExpression(expr);
-        newResult.setLowerBound(a);
-        newResult.setUpperBound(b);
-        newResult.setPartitionNumber(n);
-        newResult.setResult(result);
+        double result = this.numericalIntegrationImplementation.simpsons_one_third_rule(a,b,n,expr, table);
+        IntegrationDto newResult = IntegrationDto
+                .builder()
+                .expression(expr)
+                .lowerBound(a)
+                .upperBound(b)
+                .partitionNumber(n)
+                .result(result)
+                .table(table)
+                .build();
 
         return new ResponseEntity<>(newResult, HttpStatus.OK);
     }
@@ -62,15 +70,18 @@ public class NumericalIntegrationController {
         double a = integration.getLowerBound();
         double b = integration.getUpperBound();
         double n = integration.getPartitionNumber();
+        double[][] table = new double[(int)n+1][2];
 
-        double result = this.numericalIntegrationImplementation.simpsons_three_eight_rule(a,b,n,expr);
-        IntegrationDto newResult = new IntegrationDto();
-        newResult.setExpression(expr);
-        newResult.setLowerBound(a);
-        newResult.setUpperBound(b);
-        newResult.setPartitionNumber(n);
-        newResult.setResult(result);
-
+        double result = this.numericalIntegrationImplementation.simpsons_three_eight_rule(a,b,n,expr, table);
+        IntegrationDto newResult = IntegrationDto
+                .builder()
+                .expression(expr)
+                .lowerBound(a)
+                .upperBound(b)
+                .partitionNumber(n)
+                .result(result)
+                .table(table)
+                .build();
         return new ResponseEntity<>(newResult, HttpStatus.OK);
     }
 
@@ -81,14 +92,18 @@ public class NumericalIntegrationController {
         double a = integration.getLowerBound();
         double b = integration.getUpperBound();
         double n = integration.getPartitionNumber();
+        double[][] table = new double[(int)n+1][2];
 
-        double result = this.numericalIntegrationImplementation.boolesRule(a,b,n,expr);
-        IntegrationDto newResult = new IntegrationDto();
-        newResult.setExpression(expr);
-        newResult.setLowerBound(a);
-        newResult.setUpperBound(b);
-        newResult.setPartitionNumber(n);
-        newResult.setResult(result);
+        double result = this.numericalIntegrationImplementation.boolesRule(a,b,n,expr, table);
+        IntegrationDto newResult = IntegrationDto
+                .builder()
+                .expression(expr)
+                .lowerBound(a)
+                .upperBound(b)
+                .partitionNumber(n)
+                .result(result)
+                .table(table)
+                .build();
 
         return new ResponseEntity<>(newResult, HttpStatus.OK);
     }

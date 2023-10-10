@@ -23,15 +23,19 @@ public class AlgebraicAndTranscendentalEquationController {
         double a = algebraicAndTranscendentalEqations.getLowerLimit();
         double b = algebraicAndTranscendentalEqations.getUpperLimit();
         int n = algebraicAndTranscendentalEqations.getNumberOfIteration();
-        double[] root = this.algebraicAndTranscendentalEquationImplementation.calculateRootInBisectionMethod(equation,a,b,n);
+        double[][] table = new double[n][6];
+        double[] root = this.algebraicAndTranscendentalEquationImplementation.calculateRootInBisectionMethod(equation,a,b,n, table);
 
-        AlgebraicFunctionsDto newResponse = new AlgebraicFunctionsDto();
-        newResponse.setFunctionValue(root[0]);
-        newResponse.setCalculatedRoot(root[1]);
-        newResponse.setEquation(equation);
-        newResponse.setLowerLimit(a);
-        newResponse.setUpperLimit(b);
-        newResponse.setNumberOfIteration(n);
+        AlgebraicFunctionsDto newResponse = AlgebraicFunctionsDto
+                .builder()
+                .equation(equation)
+                .lowerLimit(a)
+                .upperLimit(b)
+                .numberOfIteration(n)
+                .functionValue(root[0])
+                .calculatedRoot(root[1])
+                .table(table)
+                .build();
 
         return new ResponseEntity<>(newResponse, HttpStatus.OK);
     }
@@ -42,14 +46,18 @@ public class AlgebraicAndTranscendentalEquationController {
         double a = algebraicAndTranscendentalEqations.getLowerLimit();
         double b = algebraicAndTranscendentalEqations.getUpperLimit();
         int n = algebraicAndTranscendentalEqations.getNumberOfIteration();
-        double[] root = this.algebraicAndTranscendentalEquationImplementation.calculateRootInNewtonRaphsonMethod(equation,a,n);
+        double[][] table = new double[n][3];
+        double[] root = this.algebraicAndTranscendentalEquationImplementation.calculateRootInNewtonRaphsonMethod(equation,a,n, table);
 
-        AlgebraicFunctionsDto newResponse = new AlgebraicFunctionsDto();
-        newResponse.setFunctionValue(root[0]);
-        newResponse.setCalculatedRoot(root[1]);
-        newResponse.setEquation(equation);
-        newResponse.setLowerLimit(a);
-        newResponse.setNumberOfIteration(n);
+        AlgebraicFunctionsDto newResponse = AlgebraicFunctionsDto
+                .builder()
+                .equation(equation)
+                .lowerLimit(a)
+                .numberOfIteration(n)
+                .functionValue(root[0])
+                .calculatedRoot(root[1])
+                .table(table)
+                .build();
 
         return new ResponseEntity<>(newResponse, HttpStatus.OK);
     }
@@ -60,15 +68,19 @@ public class AlgebraicAndTranscendentalEquationController {
         double a = algebraicAndTranscendentalEqations.getLowerLimit();
         double b = algebraicAndTranscendentalEqations.getUpperLimit();
         int n = algebraicAndTranscendentalEqations.getNumberOfIteration();
-        double[] root = this.algebraicAndTranscendentalEquationImplementation.calculateRootInRegulaFalsiMethod(equation,a,b,n);
+        double[][] table = new double[n][6];
+        double[] root = this.algebraicAndTranscendentalEquationImplementation.calculateRootInRegulaFalsiMethod(equation,a,b,n, table);
 
-        AlgebraicFunctionsDto newResponse = new AlgebraicFunctionsDto();
-        newResponse.setFunctionValue(root[0]);
-        newResponse.setCalculatedRoot(root[1]);
-        newResponse.setEquation(equation);
-        newResponse.setLowerLimit(a);
-        newResponse.setUpperLimit(b);
-        newResponse.setNumberOfIteration(n);
+        AlgebraicFunctionsDto newResponse = AlgebraicFunctionsDto
+                .builder()
+                .equation(equation)
+                .lowerLimit(a)
+                .upperLimit(b)
+                .numberOfIteration(n)
+                .functionValue(root[0])
+                .calculatedRoot(root[1])
+                .table(table)
+                .build();
 
         return new ResponseEntity<>(newResponse, HttpStatus.OK);
     }

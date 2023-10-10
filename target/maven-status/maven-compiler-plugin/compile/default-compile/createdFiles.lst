@@ -19,6 +19,7 @@ com\surja\Coco\Math\service\UnequalIntervalService.class
 com\surja\Coco\Math\service\implementation\NewtonForwardImplementation.class
 com\surja\Coco\Math\payload\InterpolationDto.class
 com\surja\Coco\Math\controller\MathController.class
+com\surja\Coco\Math\payload\AlgebraicFunctionsDto$AlgebraicFunctionsDtoBuilder.class
 com\surja\Coco\Math\controller\InterpolationController.class
 com\surja\Coco\Math\service\implementation\LinearAlgebraicEquationsImplementation.class
 com\surja\Coco\Math\service\implementation\GaussBackwardImplementation.class
@@ -31,5 +32,6 @@ com\surja\Coco\Math\service\implementation\GaussForwardImplementation.class
 com\surja\Coco\Math\service\EqualIntervalInterpolationService.class
 com\surja\Coco\Math\entity\Integration.class
 com\surja\Coco\Math\CocoMathApplication.class
+com\surja\Coco\Math\payload\IntegrationDto$IntegrationDtoBuilder.class
 com\surja\Coco\Math\entity\ODE.class
 com\surja\Coco\Math\service\implementation\NumericalIntegrationImplementation.class
